@@ -46,18 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Gracz.cs" />
-    <Compile Include="Koordynaty.cs" />
-    <Compile Include="Rozgrywka.cs">
+    <Compile Include="Klasy\Gra.cs" />
+    <Compile Include="Klasy\Gracz.cs" />
+    <Compile Include="Klasy\Koordynaty.cs" />
+    <Compile Include="Klasy\Rysowanie.cs" />
+    <Compile Include="Okna\Rozgrywka.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Rozgrywka.Designer.cs">
+    <Compile Include="Okna\Rozgrywka.Designer.cs">
       <DependentUpon>Rozgrywka.cs</DependentUpon>
     </Compile>
-    <Compile Include="UstawienieStatkow.cs">
+    <Compile Include="Okna\UstawienieStatkow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UstawienieStatkow.Designer.cs">
+    <Compile Include="Okna\UstawienieStatkow.Designer.cs">
       <DependentUpon>UstawienieStatkow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -72,10 +74,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Rozgrywka.resx">
+    <EmbeddedResource Include="Okna\Rozgrywka.resx">
       <DependentUpon>Rozgrywka.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UstawienieStatkow.resx">
+    <EmbeddedResource Include="Okna\UstawienieStatkow.resx">
       <DependentUpon>UstawienieStatkow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

@@ -41,7 +41,7 @@
             // 
             this.lblNazwaGracza.AutoSize = true;
             this.lblNazwaGracza.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNazwaGracza.Location = new System.Drawing.Point(593, 91);
+            this.lblNazwaGracza.Location = new System.Drawing.Point(532, 112);
             this.lblNazwaGracza.Name = "lblNazwaGracza";
             this.lblNazwaGracza.Size = new System.Drawing.Size(51, 17);
             this.lblNazwaGracza.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // txtNazwaGracza
             // 
-            this.txtNazwaGracza.Location = new System.Drawing.Point(570, 120);
+            this.txtNazwaGracza.Location = new System.Drawing.Point(509, 141);
             this.txtNazwaGracza.Name = "txtNazwaGracza";
             this.txtNazwaGracza.Size = new System.Drawing.Size(100, 20);
             this.txtNazwaGracza.TabIndex = 1;
@@ -59,7 +59,7 @@
             this.txtInfo.AutoSize = true;
             this.txtInfo.BackColor = System.Drawing.Color.Transparent;
             this.txtInfo.ForeColor = System.Drawing.Color.Firebrick;
-            this.txtInfo.Location = new System.Drawing.Point(572, 158);
+            this.txtInfo.Location = new System.Drawing.Point(511, 179);
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.Size = new System.Drawing.Size(98, 13);
             this.txtInfo.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // btnObrot
             // 
-            this.btnObrot.Location = new System.Drawing.Point(584, 241);
+            this.btnObrot.Location = new System.Drawing.Point(523, 262);
             this.btnObrot.Name = "btnObrot";
             this.btnObrot.Size = new System.Drawing.Size(75, 23);
             this.btnObrot.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // btnDalej
             // 
-            this.btnDalej.Location = new System.Drawing.Point(584, 285);
+            this.btnDalej.Location = new System.Drawing.Point(523, 306);
             this.btnDalej.Name = "btnDalej";
             this.btnDalej.Size = new System.Drawing.Size(75, 23);
             this.btnDalej.TabIndex = 4;
@@ -85,19 +85,21 @@
             // 
             // planszaGracza
             // 
+            this.planszaGracza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.planszaGracza.Image = global::GraStatki.Properties.Resources.board;
             this.planszaGracza.Location = new System.Drawing.Point(36, 12);
             this.planszaGracza.Name = "planszaGracza";
-            this.planszaGracza.Size = new System.Drawing.Size(450, 450);
+            this.planszaGracza.Size = new System.Drawing.Size(400, 400);
             this.planszaGracza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaGracza.TabIndex = 5;
             this.planszaGracza.TabStop = false;
+            this.planszaGracza.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PlanszaGracza_PoruszanieMysza);
             // 
             // UstawienieStatkow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 479);
+            this.ClientSize = new System.Drawing.Size(714, 448);
             this.Controls.Add(this.planszaGracza);
             this.Controls.Add(this.btnDalej);
             this.Controls.Add(this.btnObrot);

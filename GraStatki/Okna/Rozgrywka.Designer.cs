@@ -36,20 +36,22 @@
             // 
             // planszaKomputera
             // 
+            this.planszaKomputera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.planszaKomputera.Image = global::GraStatki.Properties.Resources.board;
             this.planszaKomputera.Location = new System.Drawing.Point(72, 27);
             this.planszaKomputera.Name = "planszaKomputera";
-            this.planszaKomputera.Size = new System.Drawing.Size(450, 450);
+            this.planszaKomputera.Size = new System.Drawing.Size(400, 400);
             this.planszaKomputera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaKomputera.TabIndex = 0;
             this.planszaKomputera.TabStop = false;
             // 
             // planszaGracza
             // 
+            this.planszaGracza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.planszaGracza.Image = global::GraStatki.Properties.Resources.board;
-            this.planszaGracza.Location = new System.Drawing.Point(687, 27);
+            this.planszaGracza.Location = new System.Drawing.Point(646, 27);
             this.planszaGracza.Name = "planszaGracza";
-            this.planszaGracza.Size = new System.Drawing.Size(450, 450);
+            this.planszaGracza.Size = new System.Drawing.Size(400, 400);
             this.planszaGracza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaGracza.TabIndex = 1;
             this.planszaGracza.TabStop = false;
@@ -58,7 +60,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 505);
+            this.ClientSize = new System.Drawing.Size(1156, 477);
             this.Controls.Add(this.planszaGracza);
             this.Controls.Add(this.planszaKomputera);
             this.Name = "Rozgrywka";
