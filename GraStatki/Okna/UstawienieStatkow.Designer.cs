@@ -93,6 +93,7 @@
             this.planszaGracza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaGracza.TabIndex = 5;
             this.planszaGracza.TabStop = false;
+            this.planszaGracza.Click += new System.EventHandler(this.planszaGracza_Click);
             this.planszaGracza.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PlanszaGracza_PoruszanieMysza);
             // 
             // UstawienieStatkow

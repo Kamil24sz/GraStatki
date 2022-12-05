@@ -101,5 +101,15 @@ namespace GraStatki
                 }
             }
         }
+
+        private void planszaGracza_Click(object sender, EventArgs e)
+        {
+            //sprawdzamy czy współrzędne myszy nie są poza planszą
+            if(myszX != -1 && myszY != -1)
+            {
+                //sprawdzamy czy statek nie wyjdzie poza planszę
+                //if() Gra.MoznaPostawicSatek 
+            }
+        }
     }
 }
