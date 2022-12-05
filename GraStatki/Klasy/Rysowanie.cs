@@ -39,5 +39,19 @@ namespace GraStatki.Klasy
                 SZEROKOSC_KOMORKI, WYSOKOSC_KOMORKI);
         }
 
+        public static void RysujUstawioneKomorki(int[,] komorki, PaintEventArgs e)
+        {
+            for(int x = 0; x < Gracz.ROZMIAR_PLANSZY; x++)
+            {
+                for(int y = 0; y < Gracz.ROZMIAR_PLANSZY; y++)
+                {
+                    if(komorki[x, y] != -1)
+                    {
+                        RysujKomorke(x, y, komorki[x, y], e);
+                    }
+                }
+            }
+        }
+
     }
 }

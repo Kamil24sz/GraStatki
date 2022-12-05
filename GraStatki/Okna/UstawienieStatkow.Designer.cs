@@ -73,6 +73,7 @@
             this.btnObrot.TabIndex = 3;
             this.btnObrot.Text = "Obróć";
             this.btnObrot.UseVisualStyleBackColor = true;
+            this.btnObrot.Click += new System.EventHandler(this.btnObrot_Click);
             // 
             // btnDalej
             // 
@@ -82,6 +83,7 @@
             this.btnDalej.TabIndex = 4;
             this.btnDalej.Text = "Dalej";
             this.btnDalej.UseVisualStyleBackColor = true;
+            this.btnDalej.Click += new System.EventHandler(this.btnDalej_Click);
             // 
             // planszaGracza
             // 
@@ -94,6 +96,7 @@
             this.planszaGracza.TabIndex = 5;
             this.planszaGracza.TabStop = false;
             this.planszaGracza.Click += new System.EventHandler(this.planszaGracza_Click);
+            this.planszaGracza.Paint += new System.Windows.Forms.PaintEventHandler(this.PlanszaGracza_Rysowanie);
             this.planszaGracza.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PlanszaGracza_PoruszanieMysza);
             // 
             // UstawienieStatkow

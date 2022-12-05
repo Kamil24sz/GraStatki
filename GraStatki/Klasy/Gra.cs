@@ -71,5 +71,49 @@ namespace GraStatki.Klasy
             }
         }
 
+        public static void RozmiescStatek(int aktualnyStatek, int komorkaX, int komorkaY, bool jestHoryzontalnie, int[,] komorki)
+        {
+            if (jestHoryzontalnie)
+            {
+                for(int i = 0; i < Gra.rozmiarStatku[aktualnyStatek]; i++)
+                {
+                    komorki[komorkaX + i, komorkaY] = aktualnyStatek;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Gra.rozmiarStatku[aktualnyStatek]; i++)
+                {
+                    komorki[komorkaX, komorkaY + i] = aktualnyStatek;
+                }
+            }
+        }
+
+        public static void RozmieszczenieStatkowKomputera()
+        {
+            for(int aktualnyStatek = 0; aktualnyStatek < 4; aktualnyStatek++)
+            {
+                //pomocnicza lista, w której umieścimy możliwe współrzędne dla statków
+                List<int[]> mozliwosci = new List<int[]>();
+
+                for(int x = 0; x < Gracz.ROZMIAR_PLANSZY; x++)
+                {
+                    for(int y = 0; y < Gracz.ROZMIAR_PLANSZY; y++)
+                    {
+                        //sprawdzamy czy w danym polu można postawić statek
+                        if(MoznaPostawicSatek(aktualnyStatek, x, y, true, komputer.Plansza))
+                        {
+                            //dodajemy współrzedne do listy
+                            mozliwosci.Add(new int[] { x, y });
+                        }
+                    }
+                }
+                //losujemy wartość z listy możliwości
+                int wybor = new Random().Next(mozliwosci.Count);
+
+                //rozmieszczamy statki
+                RozmiescStatek(aktualnyStatek, mozliwosci[wybor][0], mozliwosci[wybor][1], true, Gra.komputer.Plansza);
+            }
+        }
     }
 }

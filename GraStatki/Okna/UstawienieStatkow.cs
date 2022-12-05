@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GraStatki.Klasy;
+using System;
 using System.Windows.Forms;
 
 namespace GraStatki
@@ -108,7 +102,73 @@ namespace GraStatki
             if(myszX != -1 && myszY != -1)
             {
                 //sprawdzamy czy statek nie wyjdzie poza planszę
-                //if() Gra.MoznaPostawicSatek 
+                if (Gra.MoznaPostawicSatek(indexAktualnegoStatku, myszX, myszY, poziom, Gra.gracz.Plansza))
+                {
+                    // jeśli można postawić dany dtatek to ustawiamy index tablcy na true
+                    rozmieszczoneStatki[indexAktualnegoStatku] = true;
+
+                    //Umieszczenie statku na planszy
+                    Gra.RozmiescStatek(indexAktualnegoStatku, myszX, myszY, poziom, Gra.gracz.Plansza);
+
+                    //odświeżamy plansze
+                    planszaGracza.Refresh();
+
+                    if (indexAktualnegoStatku < 4)
+                    {
+                        indexAktualnegoStatku++;
+                    }
+
+                    //zmienna pomocnicza do sprawdzenia czy wszystkie statki są rozmieszczone
+                    bool wszystkieStatkiRozmieszczone = true;
+
+                    //sprawdzenie czy wszystkie statki są rozmieszczone
+                    foreach (bool rozmieszczony in rozmieszczoneStatki)
+                    {
+                        if (!rozmieszczony)
+                        {
+                            wszystkieStatkiRozmieszczone = false;
+                        }
+                    }
+
+                    if (wszystkieStatkiRozmieszczone)
+                    {
+                        btnDalej.Enabled = true;
+                    }
+
+                } 
+            }
+        }
+
+        private void PlanszaGracza_Rysowanie(object sender, PaintEventArgs e)
+        {
+            Rysowanie.RysujUstawioneKomorki(Gra.gracz.Plansza, e);
+        }
+
+        private void btnObrot_Click(object sender, EventArgs e)
+        {
+            poziom = !poziom;
+        }
+
+        private void btnDalej_Click(object sender, EventArgs e)
+        {
+            if(txtNazwaGracza.Text == "")
+            {
+                MessageBox.Show("Podaj nazwę gracza!", "Warning");
+            }
+            else
+            {
+                Gra.gracz.Nazwa = txtNazwaGracza.Text;
+                Gra.komputer.Nazwa = "Komputer";
+
+                //ToDo
+                //RozmieszczenieStatkowKomputera();
+
+                //wyświetlanie nowego okna
+                Rozgrywka rozgrywka = new Rozgrywka();
+                rozgrywka.Show();
+
+                //ukrycie okna UstawienieStatów
+                Hide();
             }
         }
     }
