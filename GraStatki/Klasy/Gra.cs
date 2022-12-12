@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GraStatki.Klasy
 {
@@ -114,6 +116,63 @@ namespace GraStatki.Klasy
                 //rozmieszczamy statki
                 RozmiescStatek(aktualnyStatek, mozliwosci[wybor][0], mozliwosci[wybor][1], true, Gra.komputer.Plansza);
             }
+        }
+
+        public static bool WykonajAtak(int komorkaX, int komorkaY, Gracz atakujacy, Gracz atakowany)
+        {
+            // lekkie opóźnienie 1s
+            Thread.Sleep(1000);
+
+            //wskazane pole zostaje ustawione jako odkryte
+            atakowany.OdkrytePola[komorkaX, komorkaY] = true;
+
+            //sprawdzamy czy został trafiony statek
+            if(atakowany.Plansza[komorkaX,komorkaY] != -1)
+            {
+                //zmniejszenie wartości trafionego statku (tablica flota)
+                atakowany.Flota[atakowany.Plansza[komorkaX, komorkaY]]--;  ///  1,2,3,4  => 1,2,3,3
+
+                if(atakowany.Flota[atakowany.Plansza[komorkaX, komorkaY]] == 0)
+                {
+                    //jeśli statek zostanie zatopiony
+                    atakowany.LiczbaStatkowDoZatopienia--; //4 => 3
+                }
+
+                if(atakowany.LiczbaStatkowDoZatopienia == 0)
+                {
+                    KoniecGry(atakujacy);
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static int[] StrzalKomputera(Gracz gracz)
+        {
+            //tworzymy obiekt losujący
+            Random random = new Random();
+
+            //losujemy współrzędne (strzał komputera)
+            int x = random.Next(0, 9);
+            int y = random.Next(0, 9);
+
+            while(gracz.OdkrytePola[x, y] == true)
+            {
+                x = random.Next(0, 9);
+                y = random.Next(0, 9);
+            }
+
+            //zwracamy współrzędne x i y
+            int[] strzal = { x, y };
+            return strzal;
+        }
+
+        public static void KoniecGry(Gracz gracz)
+        {
+            MessageBox.Show($"Koniec gry: wygrał {gracz.Nazwa}");
         }
     }
 }

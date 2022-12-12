@@ -10,6 +10,9 @@ namespace GraStatki.Klasy
 {
     public static class Rysowanie
     {
+        private static readonly Bitmap hitImage = Properties.Resources.hitImage;
+        private static readonly Bitmap splashImage = Properties.Resources.splashImage;
+
         private const int SZEROKOSC_RAMKI = 35;
         private const int WYSOKOSC_RAMKI = 35;
 
@@ -53,5 +56,53 @@ namespace GraStatki.Klasy
             }
         }
 
+        public static void RysujKomorki(bool[,] odkryteKomorki, int[,] komorki, PaintEventArgs e)
+        {
+            for(int x = 0; x < Gracz.ROZMIAR_PLANSZY; x++)
+            {
+                for(int y = 0; y < Gracz.ROZMIAR_PLANSZY; y++)
+                {
+                    if(odkryteKomorki[x, y])
+                    {
+                        if(komorki[x, y] != -1)
+                        {
+                            RysujTrafionaKomorke(x, y, e);
+                        }
+                        else
+                        {
+                            RysujeNietrafionaKomorke(x, y, e);
+                        }
+                    }
+                }
+            }
+        }
+        public static void RysujTrafionaKomorke(int komorkaX, int komorkaY, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(hitImage, komorkaX * 40, komorkaY * 40);
+        }
+        public static void RysujeNietrafionaKomorke(int komorkaX, int komorkaY, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(splashImage, komorkaX * 40, komorkaY * 40);
+        }
+
+        public static void RysujZatopioneStatki(int[,] komorki, int[] trafieniaStatku, PaintEventArgs e)
+        {
+            for(int aktualnyStatek = 0; aktualnyStatek < 4; aktualnyStatek++)
+            {
+                if(trafieniaStatku[aktualnyStatek] == 0) // 1,2,3,4 => 1,2,3,0 
+                {
+                    for(int x = 0; x < 10; x++)
+                    {
+                        for(int y = 0; y < 10; y++)
+                        {
+                            if(komorki[x, y] == aktualnyStatek)
+                            {
+                                RysujKomorke(x, y, aktualnyStatek, e);
+                            }
+                        }
+                    }
+                }  
+            }
+        }
     }
 }

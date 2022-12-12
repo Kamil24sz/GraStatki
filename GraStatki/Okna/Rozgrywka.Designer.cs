@@ -44,6 +44,9 @@
             this.planszaKomputera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaKomputera.TabIndex = 0;
             this.planszaKomputera.TabStop = false;
+            this.planszaKomputera.Click += new System.EventHandler(this.planszaKomputera_Klikniecie);
+            this.planszaKomputera.Paint += new System.Windows.Forms.PaintEventHandler(this.planszaKomputera_Rysowanie);
+            this.planszaKomputera.MouseMove += new System.Windows.Forms.MouseEventHandler(this.planszaKomputera_PoruszanieMysza);
             // 
             // planszaGracza
             // 
@@ -55,6 +58,7 @@
             this.planszaGracza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaGracza.TabIndex = 1;
             this.planszaGracza.TabStop = false;
+            this.planszaGracza.Paint += new System.Windows.Forms.PaintEventHandler(this.planszaGracza_Rysowanie);
             // 
             // Rozgrywka
             // 
