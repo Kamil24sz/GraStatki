@@ -161,7 +161,7 @@ namespace GraStatki
                 Gra.komputer.Nazwa = "Komputer";
 
                 //ToDo
-                //RozmieszczenieStatkowKomputera();
+                Gra.RozmieszczenieStatkowKomputera();
 
                 //wyświetlanie nowego okna
                 Rozgrywka rozgrywka = new Rozgrywka();

@@ -156,13 +156,13 @@ namespace GraStatki.Klasy
             Random random = new Random();
 
             //losujemy współrzędne (strzał komputera)
-            int x = random.Next(0, 9);
-            int y = random.Next(0, 9);
+            int x = random.Next(0, 10);
+            int y = random.Next(0, 10);
 
             while(gracz.OdkrytePola[x, y] == true)
             {
-                x = random.Next(0, 9);
-                y = random.Next(0, 9);
+                x = random.Next(0, 10);
+                y = random.Next(0, 10);
             }
 
             //zwracamy współrzędne x i y
